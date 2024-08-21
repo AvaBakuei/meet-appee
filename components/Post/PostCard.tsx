@@ -12,6 +12,7 @@ export const PostCard: React.FC<PostCardProps> = ({ postCard }) => {
     >
       {postCard.map((post: PostInterface) => (
         <Card
+          key={post.id}
           className={styles.imageCard}
           shadow="sm"
           padding="lg"
