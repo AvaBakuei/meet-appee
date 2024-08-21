@@ -1,12 +1,19 @@
-
-import { PostCard } from "@/components/Post/PostCard";
-import { fetchPosts } from "@/lib/data/fetchPosts";
+"use client"
+import { getInstagramAuthUrl } from "@/lib/data/getInstagramAuthUrl";
+import { useEffect } from "react";
 export default async function Home() {
-  const posts = await fetchPosts();
-  const { data } = posts;
+
+  useEffect(() => {
+    // Redirect the user to Instagram's authorization page
+    const authUrl = getInstagramAuthUrl();
+    window.location.href = authUrl;
+    console.log("authUrl", authUrl);
+
+  }, []);
+
   return (
     <div>
-      <PostCard postCard={data} />
+      Home page
     </div>
   );
 }
