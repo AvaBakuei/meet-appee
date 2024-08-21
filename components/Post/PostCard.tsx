@@ -25,13 +25,6 @@ export const PostCard: React.FC<PostCardProps> = ({ postCard }) => {
             fill
             unoptimized
           />
-
-          {/* <Group justify="space-between" mt="md" mb="xs">
-            <Text fw={500}>{post.caption}</Text>
-          </Group>
-          <Button color="blue" fullWidth mt="md" radius="md">
-            Read Comments
-          </Button> */}
         </Card>
       ))}
       <></>
