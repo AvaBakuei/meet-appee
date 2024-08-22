@@ -1,11 +1,11 @@
-"use client";
+"use client"
 import { PostCard } from "@/components/Post/PostCard";
 import { PostInterface } from "@/components/types/post.types";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { fetchPosts } from "../../lib/data/fetchPosts";
 
-export default function Auth() {
+const AuthContent = () => {
   const searchParams = useSearchParams();
   const [data, setData] = useState<PostInterface[]>();
 
@@ -34,4 +34,11 @@ export default function Auth() {
   }, [searchParams]);
 
   return <div>{data && <PostCard postCard={data} />}</div>;
+};
+export default function Auth() {
+  return (
+    <Suspense fallback={<div>Loading....</div>}>
+      <AuthContent />
+    </Suspense>
+  );
 }
